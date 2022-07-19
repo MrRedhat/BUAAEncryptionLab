@@ -1,3 +1,9 @@
+"""
+version:2022-07-19-17-21
+"""
+
+
+# 模拟扩展欧几里得求逆元
 def get_inv(a, b):
     a_symbol = 1
     b_symbol = 1
@@ -5,7 +11,7 @@ def get_inv(a, b):
         a_symbol = -1
     if b < 0:
         b_symbol = -1
-    # 均按正数处理
+    # 去除符号，均按正数处理
 
     a0 = [a * a_symbol, 1, 0]
     b0 = [b * b_symbol, 0, 1]
@@ -20,7 +26,6 @@ def get_inv(a, b):
     while answer < 0:
         answer += b
     return answer * a_symbol * b_symbol
-# 这是扩展欧几里得求逆元的函数
 
 
 def crt(n, a, b):
@@ -45,7 +50,7 @@ def crt(n, a, b):
 def test():
     test = [[[23, 28, 33], [0, 0, 0]]]
     for i in range(0, 1):
-        print(CRT(3, test[i][0], test[i][1]))
+        print(crt(3, test[i][0], test[i][1]))
 
 
 def main():
@@ -55,15 +60,16 @@ def main():
     bsp = bstring.split(" ")
     # 输入
 
+    n = len(asp)
     for i in range(0, n):
         asp[i] = int(asp[i])
         bsp[i] = int(bsp[i])
 
-    print(CRT(3, asp, bsp))
+    print(crt(3, asp, bsp))
     # 输出
 
 
 if __name__ == '__main__':
-    test()
+    main()
 
 
